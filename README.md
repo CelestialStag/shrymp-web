@@ -8,10 +8,10 @@
 
 <!-- <img src="res/repo/banner.svg" height='300px'> -->
 
-[![Build Status](https://travis-ci.com/songmawa/shrymp-web.svg?branch=master)](https://travis-ci.com/songmawa/pndo.me-web)
-[![GitHub Issues](https://img.shields.io/github/issues/songmawa/shrymp-web.svg)](https://github.com/songmawa/pndo.me-web/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/songmawa/shrymp-web.svg)](https://github.com/songmawa/pndo.me-web/pulls)
-[![GitHub License](https://img.shields.io/github/license/songmawa/shrymp-web)](/LICENSE)
+[![Build Status](https://travis-ci.com/theluckyegg/shrymp-web.svg?branch=master)](https://travis-ci.com/theluckyegg/shrymp-web)
+[![GitHub Issues](https://img.shields.io/github/issues/theluckyegg/shrymp-web.svg)](https://github.com/theluckyegg/shrymp-web/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/theluckyegg/shrymp-web.svg)](https://github.com/theluckyegg/shrymp-web/pulls)
+[![GitHub License](https://img.shields.io/github/license/theluckyegg/shrymp-web)](/LICENSE)
 
 </div>
 
