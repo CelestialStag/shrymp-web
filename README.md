@@ -1,1 +1,1 @@
-# shrimp-web
+# shrymp-web
