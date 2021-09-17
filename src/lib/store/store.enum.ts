@@ -1,4 +1,5 @@
 export enum LinkAction {
 	ADD_LINK,
-	DELETE_LINK
+	DELETE_LINK,
+	CREATE_LINK
 }
