@@ -9,11 +9,11 @@ import { useStore } from 'lib/store/StoreProvider';
 const LinkTool = () => {
 	const dispatch = useStore(state => state.dispatch);
 	const tinyURL = useStore(state => state.created_link);
-
+	
 	const CreateTinyURL = (data: Link) => {
 		dispatch({
 			type: LinkAction.CREATE_LINK,
-			created_link: `http://${data.domain}/${data.tiny_url}`
+			created_link: data
 		});
 	};
 
@@ -37,6 +37,9 @@ const LinkTool = () => {
 		<form onSubmit={linkToolAction}>
 			<input id='long-url' name='long-url' type='text'
 				placeholder='enter a url to shorten' required />
+			<select id='domain' name='domain'
+				placeholder='enter a url to shorten' required>
+			</select>
 			<input id='tiny-url' name='tiny-url' type='text'
 				onClick={copyFunc} value={tinyURL}
 				placeholder='your url will appear here' readOnly/>

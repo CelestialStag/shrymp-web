@@ -23,15 +23,16 @@ const defaultState: StoreState & State = {
 };
 
 const reducer = (currentState = defaultState, state): any => {
+	const createdLink = state.created_link;
+
 	switch (state.type) {
 	case LinkAction.ADD_LINK:
 		return { ...currentState, ...state, loggedIn: true };
 	case LinkAction.DELETE_LINK:
 		return { ...currentState };
 	case LinkAction.CREATE_LINK:
-		
 		return {
-			created_link: state.created_link,
+			created_link: `http://${createdLink.domain}/${createdLink.tiny_url}`,
 			link_list: [
 				...currentState.link_list,
 				state.created_link
@@ -78,7 +79,7 @@ export const createStore = (loadedState?) => {
 	if (typeof window === 'undefined') return _store;
 	// Create the store once in the client
 	if (!store) store = _store;
-
+	  
 	return _store;
 };
 
