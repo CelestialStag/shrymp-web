@@ -24,20 +24,32 @@ const defaultState: StoreState & State = {
 
 const reducer = (currentState = defaultState, state): any => {
 	const createdLink = state.created_link;
-
+	
 	switch (state.type) {
 	case LinkAction.ADD_LINK:
 		return { ...currentState, ...state, loggedIn: true };
 	case LinkAction.DELETE_LINK:
 		return { ...currentState };
 	case LinkAction.CREATE_LINK:
-		return {
-			created_link: `http://${createdLink.domain}/${createdLink.tiny_url}`,
-			link_list: [
-				...currentState.link_list,
-				state.created_link
-			]
-		};
+		if(createdLink.domain && createdLink.tiny_url) {
+			return {
+				created_link: `http://${createdLink.domain}/${createdLink.tiny_url}`,
+				link_list: [
+					...currentState.link_list,
+					state.created_link
+				]
+			};
+		} else {
+			if(createdLink.errors) {
+				return {
+					created_link: 'Error: Invalid URL'
+				};
+			} else {
+				return {
+					created_link: 'Error: Unknown Error'
+				};
+			}
+		}
 	default:
 		return {
 			...currentState,
