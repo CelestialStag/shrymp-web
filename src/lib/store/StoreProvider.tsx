@@ -18,8 +18,8 @@ export const StoreProvider = ({ children, store }: Props) => {
 	);
 };
 
-export const useStore = (selector: (state: StoreState & State) => any, eqFn) => {
+export const useStore = (selector: (state: StoreState & State) => any) => {
 	const store = useContext(StoreContext);
-	const values = store(selector, eqFn);
+	const values = store(selector);
 	return values;
 };
