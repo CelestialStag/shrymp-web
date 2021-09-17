@@ -4,7 +4,9 @@ import { Domain } from 'lib/types';
 import { createStore } from 'lib/store/store';
 
 import { loadDomains } from 'lib/LinkTool';
+import { useStore } from 'lib/store/StoreProvider';
 
+import { LinkList } from '../components/LinkList';
 import { LinkTool } from '../components/LinkTool';
 import { MenuButton } from 'components/MenuButton';
 import { Overlay } from '../components/Overlay';
@@ -16,24 +18,26 @@ interface Props {
 }
 
 const Index = (props: Props) => {
+	const linkList = useStore(state => state.link_list);
 	
 	const [ overlayHidden, useOverlayHidden ] = useState(true);
+
+	const ToggleOverlay = () => {
+		useOverlayHidden(!overlayHidden);
+	};
 
 	const CloseOverlay = () => {
 		useOverlayHidden(true);
 	};
 
-	const OpenOverlay = () => {
-		useOverlayHidden(false);
-	};
-	
 	return (
 		<div className='container full-height center'>
 			<Overlay hidden={overlayHidden} onClick={CloseOverlay}>
-				<MenuButton onClick={OpenOverlay} />
+				<MenuButton onClick={ToggleOverlay} />
 				<LinkTool domainList={props.domainList} />
 			</Overlay>
 			<Sidebar hidden={overlayHidden}>
+				<LinkList linkList={linkList} />
 			</Sidebar>
 		</div>
 	);

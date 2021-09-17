@@ -29,7 +29,11 @@ const reducer = (currentState = defaultState, state): any => {
 	case LinkAction.ADD_LINK:
 		return { ...currentState, ...state, loggedIn: true };
 	case LinkAction.DELETE_LINK:
-		return { ...currentState };
+		return {
+			link_list: currentState.link_list.filter((link) => {
+				return link.tiny_url !== state.deleted_link;
+			})
+		};
 	case LinkAction.CREATE_LINK:
 		if(createdLink.domain && createdLink.tiny_url) {
 			return {

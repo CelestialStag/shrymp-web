@@ -2,8 +2,16 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 100%;
+	height: 100vh;
 	background: #fff;
+}
+
+.sidebarContainer {
+	overflow-y: auto;
+	overflow-x: hidden;
+	
+	margin: 6rem 0rem 0rem;
+	padding: 0rem 2rem 0rem;
 }
 
 .sidebarHidden {
