@@ -33,7 +33,11 @@ const LinkTool = (props: Props) => {
 	const copyFunc = (event: SyntheticEvent<HTMLInputElement>) => {
 		if(tinyURL) {
 			(event.target as HTMLInputElement).select();
-			navigator.clipboard.writeText(tinyURL);
+			if (typeof (navigator.clipboard) == 'undefined') {
+				document.execCommand('copy');
+			} else {
+				navigator.clipboard.writeText(tinyURL);
+			}
 		}
 	};
 	
