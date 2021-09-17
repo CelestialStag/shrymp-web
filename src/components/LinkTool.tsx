@@ -10,19 +10,19 @@ const LinkTool = () => {
 	const dispatch = useStore(state => state.dispatch);
 	const tinyURL = useStore(state => state.created_link);
 
-	const linkToolAction = (form: SyntheticEvent<HTMLFormElement>) => {
+	const CreateTinyURL = (data: Link) => {
+		dispatch({
+			type: LinkAction.CREATE_LINK,
+			created_link: `http://${data.domain}/${data.tiny_url}`
+		});
+	};
+
+	const linkToolAction = async (form: SyntheticEvent<HTMLFormElement>) => {
 		form.preventDefault();
 		form.stopPropagation();
 
-		const DisplayTinyURL = (data: Link) => {
-			dispatch({
-				type: LinkAction.CREATE_LINK,
-				created_link: `http://${data.domain}/${data.tiny_url}`
-			});
-		};
-
-		sendLandingForm(form).then((responce) => {
-			DisplayTinyURL(responce);
+		await sendLandingForm(form).then((responce) => {
+			CreateTinyURL(responce);
 		});
 	};
 

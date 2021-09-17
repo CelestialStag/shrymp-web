@@ -29,6 +29,7 @@ const reducer = (currentState = defaultState, state): any => {
 	case LinkAction.DELETE_LINK:
 		return { ...currentState };
 	case LinkAction.CREATE_LINK:
+		
 		return {
 			created_link: state.created_link,
 			link_list: [
@@ -60,7 +61,6 @@ const initStore = (loadedState = defaultState) => {
 	);
 };
 
-
 export const createStore = (loadedState?) => {
 	let _store = store ?? initStore(loadedState);
 
@@ -69,6 +69,7 @@ export const createStore = (loadedState?) => {
 		  ...store.getState(),
 		  ...loadedState
 		});
+		_store.getState().dispatch({ type: LinkAction.HYDRATE });
 		// Reset the current store
 		store = undefined;
 	  }

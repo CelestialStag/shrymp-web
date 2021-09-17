@@ -12,9 +12,13 @@ const Index = () => {
 
 export function getServerSideProps() {
 	const store = createStore();
-  
+
 	return {
-	 	props: { state: JSON.stringify(store.getState()) }
+	 	props: {
+			state: JSON.stringify({
+				...store.getState()
+			})
+		}
 	};
 }
 
