@@ -1,15 +1,19 @@
-import { SyntheticEvent } from 'react';
+import { ReactNode, SyntheticEvent } from 'react';
 
-import { Link } from '../lib/types';
-import { sendLandingForm } from '../lib/LandingForm';
+import { sendLandingForm } from '../lib/LinkTool';
+import { Domain, Link } from '../lib/types';
 
 import { LinkAction } from '../lib/store/store.enum';
 import { useStore } from 'lib/store/StoreProvider';
 
-const LinkTool = () => {
+interface Props {
+	domainList: Domain[];
+}
+
+const LinkTool = (props: Props) => {
 	const dispatch = useStore(state => state.dispatch);
 	const tinyURL = useStore(state => state.created_link);
-	
+
 	const CreateTinyURL = (data: Link) => {
 		dispatch({
 			type: LinkAction.CREATE_LINK,
@@ -38,7 +42,19 @@ const LinkTool = () => {
 			<input id='long-url' name='long-url' type='text'
 				placeholder='enter a url to shorten' required />
 			<select id='domain' name='domain'
-				placeholder='enter a url to shorten' required>
+				placeholder='enter a url to shorten'>
+				{(() => {
+					const options: ReactNode[] = [];
+					for (const domain in props.domainList) {             
+						options.push(
+							<option key={domain}
+								value={props.domainList[domain].id}>
+								{props.domainList[domain].domain}
+							</option>
+						);   
+					}
+					return options;
+				})()}
 			</select>
 			<input id='tiny-url' name='tiny-url' type='text'
 				onClick={copyFunc} value={tinyURL}

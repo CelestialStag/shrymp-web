@@ -6,12 +6,23 @@ import qs from 'querystring';
 import config from '../../config/server.json';
 
 const baseURL = `${config.server}/api/v1`;
+const baseLocalURL = `${config.local_server}/api/v1`;
+
+export const loadDomains = async () => {
+	const data = await fetch(`${baseLocalURL}/domain`, {
+		method: 'GET'
+	});
+
+	return data.json();
+};
 
 export const sendLandingForm = async (form: SyntheticEvent<HTMLFormElement>) => {
 	const longURL = (form.currentTarget[0] as HTMLInputElement).value;
+	const domainID = (form.currentTarget[1] as HTMLInputElement).value;
 	
 	const request = {
-		long_url: longURL
+		long_url: longURL,
+		domain_id: domainID
 	};
 
 	const data = await fetch(`${baseURL}/link`, {
