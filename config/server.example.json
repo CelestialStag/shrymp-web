@@ -1,3 +1,4 @@
 {
+	"local_server": "http://localhost:3001",
 	"server": "shrymp.dev"
 }
