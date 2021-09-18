@@ -31,7 +31,7 @@ const LinkListItem = (props: Props) => {
 	};
 
 	return (
-		<>
+		<div>
 			<div
 				style={{
 					overflow: 'hidden',
@@ -59,7 +59,7 @@ const LinkListItem = (props: Props) => {
 				<input type="button" value='delete' className='button-outline'
 					onClick={deleteLink} />
 			</div>
-		</>
+		</div>
 	);
 };
 

@@ -20,23 +20,26 @@ interface Props {
 const Index = (props: Props) => {
 	const linkList = useStore(state => state.link_list);
 	
-	const [ overlayHidden, useOverlayHidden ] = useState(true);
+	const [ hidden, useHidden ] = useState(true);
+	const [ toggle, useToggle ] = useState(false);
 
 	const ToggleOverlay = () => {
-		useOverlayHidden(!overlayHidden);
+		useHidden(false);
+		useToggle(!toggle);
 	};
 
 	const CloseOverlay = () => {
-		useOverlayHidden(true);
+		useHidden(false);
+		useToggle(!toggle);
 	};
-
+	
 	return (
 		<div className='container full-height center'>
-			<Overlay hidden={overlayHidden} onClick={CloseOverlay}>
+			<Overlay hidden={hidden} toggle={toggle} onClick={CloseOverlay}>
 				<MenuButton onClick={ToggleOverlay} />
 				<LinkTool domainList={props.domainList} />
 			</Overlay>
-			<Sidebar hidden={overlayHidden}>
+			<Sidebar hidden={hidden} toggle={toggle}>
 				<LinkList linkList={linkList} />
 			</Sidebar>
 		</div>

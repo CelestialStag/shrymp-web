@@ -80,7 +80,7 @@ const initStore = (loadedState = defaultState) => {
 
 export const createStore = (loadedState?) => {
 	let _store = store ?? initStore(loadedState);
-
+	
 	if (loadedState && store) {
 		_store = initStore({
 		  ...store.getState(),
@@ -90,7 +90,7 @@ export const createStore = (loadedState?) => {
 		// Reset the current store
 		store = undefined;
 	  }
-	
+
 	// For SSG and SSR always create a new store
 	if (typeof window === 'undefined') return _store;
 	// Create the store once in the client

@@ -1,13 +1,46 @@
+@keyframes slideIn {
+	from {
+		left: -100%;
+	}
+	to {
+		left: 0;
+	}
+}
+
+@keyframes slideOut {
+	from {
+		left: 0;
+	}
+	to {
+		left: -100%;
+	}
+}
+
 .overlay {
-	position: absolute;
+	position: fixed;
+
 	top: 0;
-	left: 0;
+
 	width: 100%;
 	height: 100vh;
 	background: #0008;
 }
 
-.overlayHidden {
+.hidden {
 	display: none;
 	visibility: hidden;
+}
+
+.slideIn {
+	left: 0;
+
+	animation-name: slideIn;
+	animation-duration: 400ms;
+}
+
+.slideOut {
+	left: -100%;
+
+	animation-name: slideOut;
+	animation-duration: 200ms;
 }
