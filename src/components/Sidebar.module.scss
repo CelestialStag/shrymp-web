@@ -19,11 +19,20 @@
 .sidebar {
 	position: fixed;
 
+	max-width: 40%;
 	top: 0;
 	left: -100%;
 
 	height: 100vh;
 	background: #fff;
+
+	@media (max-width: 768px) {
+		max-width: 60%;
+	}
+	
+	@media (max-width: 480px) {
+		max-width: 90%;
+	}
 }
 
 .sidebarContainer {
@@ -34,10 +43,6 @@
 
 	margin: 10vh 0rem 0rem 0rem;
 	padding: 0rem 2rem 0rem;
-}
-
-.linkListContainer {
-	// height: 50%;
 }
 
 .hidden {
