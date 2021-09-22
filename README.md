@@ -19,8 +19,7 @@
 
 ### Installing
 
-**create and edit the config file in res/config.json**
-
+#### **create and edit server config file in res/config.json**
 ```
 vim config/server.json
 ```
@@ -33,7 +32,7 @@ vim config/server.json
 
 ### Compiling
 
-**transile the source into javascript**
+#### **transile the source into javascript**
 
 ```
 yarn build
@@ -41,7 +40,7 @@ yarn build
 
 ### Running
 
-**run the program**
+#### **run the program**
 
 ```
 yarn start
@@ -49,7 +48,7 @@ yarn start
 
 ## Deploying
 
-**TODO**
+#### **TODO**
 
 ## Documentation
 
