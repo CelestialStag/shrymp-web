@@ -40,8 +40,8 @@ const reducer = (currentState = defaultState, state)
 			return {
 				created_link: `http://${createdLink.domain}/${createdLink.tiny_url}`,
 				link_list: [
-					...currentState.link_list,
-					state.created_link
+					state.created_link,
+					...currentState.link_list
 				]
 			};
 		} else {
