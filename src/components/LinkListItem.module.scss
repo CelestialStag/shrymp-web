@@ -1,6 +1,17 @@
-.menuButton {
-	position: fixed;
-	top: 2rem;
-	left: 2rem;
-	scale: 2;
+.linkList {
+	margin: 0;
+}
+
+.linkListText div {
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+}
+
+.buttonList {
+	display: flex;
+	gap: 0.2rem;
+}
+
+.buttonList input, .buttonList a  {
+	margin: 1rem 0 0rem;
 }

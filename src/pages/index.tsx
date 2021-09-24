@@ -40,7 +40,7 @@ const Index = (props: Props) => {
 				<LinkTool domainList={props.domainList} />
 			</Overlay>
 			<Sidebar hidden={hidden} toggle={toggle}>
-				<LinkList linkList={linkList} />
+				<LinkList linkList={linkList} header='Recent Creations' />
 			</Sidebar>
 		</div>
 	);

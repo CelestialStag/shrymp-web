@@ -15,9 +15,6 @@ const Sidebar = (props: Props) => {
 					: style.sidebar + ' ' + style.slideOut)
 		}>
 			<div className={style.sidebarContainer}>
-				<h4>
-					your recently created links
-				</h4>
 				<div className={style.linkListContainer}>
 					{props.children}
 				</div>
