@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 
 import { persist } from 'zustand/middleware';
-import create, { State } from 'zustand';
+import create, { State, UseStore } from 'zustand';
 
 import { Link } from '../types';
 import { LinkAction } from './store.enum';
 
 export interface StoreState {
-	dispatch: (action: any) => any;
+	dispatch?: (action: State) => any;
 	link_list: Link[];
 	created_link?: string;
 	deleted_link?: string;
@@ -22,7 +22,8 @@ const defaultState: StoreState & State = {
 	deleted_link: ''
 };
 
-const reducer = (currentState = defaultState, state): any => {
+const reducer = (currentState = defaultState, state)
+: Partial<StoreState> & StoreState | Pick<StoreState, keyof StoreState> => {
 	const createdLink = state.created_link;
 	
 	switch (state.type) {
@@ -46,10 +47,12 @@ const reducer = (currentState = defaultState, state): any => {
 		} else {
 			if(createdLink.errors) {
 				return {
+					...defaultState,
 					created_link: 'Error: Invalid URL'
 				};
 			} else {
 				return {
+					...defaultState,
 					created_link: 'Error: Unknown Error'
 				};
 			}
@@ -99,10 +102,10 @@ export const createStore = (loadedState?) => {
 	return _store;
 };
 
-export function useHydrate(defaultState) {
-	const state = typeof defaultState === 'string' ? JSON.parse(defaultState) : defaultState;
-	const store = useMemo(() => createStore(state), [ state ]);
+export const useHydrate = (defaultState) => {
+	const state: UseStore<StoreState> = typeof defaultState === 'string' ? JSON.parse(defaultState) : defaultState;
+	const store: UseStore<StoreState> = useMemo(() => createStore(state), [ state ]);
 	return store;
-}
+};
 
   
