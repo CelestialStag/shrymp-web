@@ -6,3 +6,94 @@
 	left: 2rem;
 	scale: 2;
 }
+
+@keyframes openTop {
+	from {
+		transform: translateY(0%) rotate(0deg);
+	}
+	to {
+		transform: translateY(25%) rotate(-45deg);
+	}
+}
+
+@keyframes openBot {
+	from {
+		transform: translateY(0%) rotate(0deg);
+	}
+	to {
+		transform: translateY(-25%) rotate(45deg);
+	}
+}
+
+@keyframes hideCenter {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+
+.menuButtonOpen line:nth-child(1) {
+	opacity: 0;
+	animation-name: hideCenter;
+	animation-duration: 400ms;
+}
+
+.menuButtonOpen line:nth-child(2) {
+	transform-origin: 50% 25%;
+	transform: translateY(25%) rotate(-45deg);
+	animation-name: openTop;
+	animation-duration: 400ms;
+}
+
+.menuButtonOpen line:nth-child(3) {
+	transform-origin: 50% 75%;
+	transform: translateY(-25%) rotate(45deg);
+	animation-name: openBot;
+	animation-duration: 400ms;
+}
+
+@keyframes closeTop {
+	from {
+		transform: translateY(25%) rotate(-45deg);
+	}
+	to {
+		transform: translateY(0%) rotate(0deg);
+	}
+}
+
+@keyframes closeBot {
+	from {
+		transform: translateY(-25%) rotate(45deg);
+	}
+	to {
+		transform: translateY(0%) rotate(0deg);
+	}
+}
+
+@keyframes showCenter {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.menuButtonClose line:nth-child(1) {
+	opacity: 1;
+	animation-name: showCenter;
+	animation-duration: 200ms;
+}
+
+.menuButtonClose line:nth-child(2) {
+	animation-name: closeTop;
+	animation-duration: 200ms;
+}
+
+.menuButtonClose line:nth-child(3) {
+	animation-name: closeBot;
+	animation-duration: 200ms;
+}

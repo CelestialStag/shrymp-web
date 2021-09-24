@@ -36,7 +36,7 @@ const Index = (props: Props) => {
 	return (
 		<div className='container full-height center'>
 			<Overlay hidden={hidden} toggle={toggle} onClick={CloseOverlay}>
-				<MenuButton onClick={ToggleOverlay} />
+				<MenuButton onClick={ToggleOverlay} animate={!hidden} rotate={toggle} />
 				<LinkTool domainList={props.domainList} />
 			</Overlay>
 			<Sidebar hidden={hidden} toggle={toggle}>
