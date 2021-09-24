@@ -47,8 +47,7 @@ const reducer = (currentState = defaultState, state)
 		} else {
 			if(createdLink.errors) {
 				return {
-					...defaultState,
-					created_link: 'Error: Invalid URL'
+					...defaultState
 				};
 			} else {
 				return {

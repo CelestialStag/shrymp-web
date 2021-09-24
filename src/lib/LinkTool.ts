@@ -19,9 +19,11 @@ export const loadDomains = async () => {
 export const sendLandingForm = async (form: SyntheticEvent<HTMLFormElement>) => {
 	const longURL = (form.currentTarget[0] as HTMLInputElement).value;
 	const domainID = (form.currentTarget[1] as HTMLInputElement).value;
+	const tinyURL = (form.currentTarget[2] as HTMLInputElement).value;
 	
 	const request = {
 		long_url: longURL,
+		tiny_url: tinyURL ?? null,
 		domain_id: domainID
 	};
 
@@ -33,6 +35,6 @@ export const sendLandingForm = async (form: SyntheticEvent<HTMLFormElement>) => 
 			'content-type': 'application/x-www-form-urlencoded'
 		}
 	});
-
-	return data.json();
+	
+	return data.text();
 };
