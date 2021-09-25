@@ -39,9 +39,9 @@ const Index = (props: Props) => {
 	
 	return (
 		<div className='container full-height center'>
+			<MenuButton onClick={ToggleOverlay} animate={!hidden} rotate={toggle} />
 			<OpenGraph />
 			<Overlay hidden={hidden} toggle={toggle} onClick={CloseOverlay}>
-				<MenuButton onClick={ToggleOverlay} animate={!hidden} rotate={toggle} />
 				<div className='mainContainer'>
 					<Image src={siteLogo} alt="site logo"
 						width="100%" height="100%" placeholder="blur"
@@ -50,6 +50,7 @@ const Index = (props: Props) => {
 				</div>
 			</Overlay>
 			<Sidebar hidden={hidden} toggle={toggle}>
+				<MenuButton onClick={ToggleOverlay} animate={!hidden} rotate={toggle} />
 				<LinkList linkList={linkList} header='Recent Creations' />
 			</Sidebar>
 		</div>
