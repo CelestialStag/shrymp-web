@@ -20,9 +20,9 @@ const LinkList = (props: Props) => {
 	
 	return (
 		<>
-			<h1>
+			<h2>
 				{props.header}
-			</h1>
+			</h2>
 			{createLinklist()}
 		</>
 	);

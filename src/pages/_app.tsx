@@ -7,6 +7,8 @@ import { createStore, useHydrate } from '../lib/store/store';
 import 'stagcss';
 import 'stagcss/dist/stag-ext.min.css';
 
+import '../css/styles.scss';
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	const state = pageProps.state ? pageProps.state : createStore(pageProps.state);
 	const store = useHydrate(state);
