@@ -91,11 +91,13 @@
 }
 
 .menuButtonClose line:nth-child(2) {
+	transform-origin: 50% 25%;
 	animation-name: closeTop;
 	animation-duration: 200ms;
 }
 
 .menuButtonClose line:nth-child(3) {
+	transform-origin: 50% 75%;
 	animation-name: closeBot;
 	animation-duration: 200ms;
 }
