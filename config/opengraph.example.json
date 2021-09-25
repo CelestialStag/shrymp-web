@@ -1,0 +1,22 @@
+{
+	"site_name": "site_name",
+	"title": "title",
+	"description": "description",
+	"image": [ {
+		"url": "https://example.com/logo.png",
+		"alt": "site logo"
+	} ],
+	"url": "example.com",
+	"openGraph": {
+		"type": "website",
+		"url": "example.com",
+		"images": [ {
+			"alt": "website logo",
+			"url": "https://example.com/logo.png"
+		} ]
+	},
+	"twitter": {
+		"cardType": "summary",
+		"site": "@hello"
+	}
+}
