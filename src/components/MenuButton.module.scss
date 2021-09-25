@@ -4,7 +4,9 @@
 	z-index: 10;
 	top: 3rem;
 	left: 3rem;
-	scale: 3;
+
+	transform: scale(2);
+    -webkit-transform:scale(2);
 }
 
 @keyframes openTop {
