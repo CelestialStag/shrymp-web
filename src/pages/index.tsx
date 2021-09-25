@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Domain } from 'lib/types';
 import { createStore } from 'lib/store/store';
@@ -43,9 +44,13 @@ const Index = (props: Props) => {
 			<OpenGraph />
 			<Overlay hidden={hidden} toggle={toggle} onClick={CloseOverlay}>
 				<div className='mainContainer'>
-					<Image src={siteLogo} alt="site logo"
-						width="100%" height="100%" placeholder="blur"
-						layout="fixed" className='siteLogo'/>
+					<Link href='/'>
+						<a>
+							<Image src={siteLogo} alt="site logo"
+								width="100%" height="100%" placeholder="empty"
+								layout="fixed" className='siteLogo'/>
+						</a>
+					</Link>
 					<LinkTool domainList={props.domainList} />
 				</div>
 			</Overlay>
